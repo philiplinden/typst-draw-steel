@@ -1,14 +1,11 @@
-# Typst DND5E template
+# Typst Draw Steel template
 
-This is a [Typst](https://typst.app) template for DND 5E content, suitable for [DMs Guild](https://www.dmsguild.com) and the like.
+This is a [Typst](https://typst.app) template for Draw Steel content forked from
+the Dungeons & Dragons 5e typst template
+[dragonling](https://github.com/coljac/typst-dnd5e) by Colin Jacobs.
 
-The template is called "dragonling" and can be imported as: `#import "@preview/dragonling:0.2.0": *`
-
-**Note:** This package has been updated for compatibility with the latest version of Typst (0.13) and is ready for submission to Typst Universe.
-
-See the [example](https://github.com/coljac/typst-dnd5e) which should mostly be self explanatory - it includes examples of tables, stat blocks and breakout boxes, and should serve as a good starting point for your own content.
-
-![example_img](https://github.com/coljac/typst-dnd5e/assets/191407/76bbb6fc-70fb-4766-b40c-37b1a090422b)
+The template is called "scabbard" and can be imported as:
+`#import "@preview/scabbard:0.1.0": *`
 
 ## Basic usage
 
@@ -34,7 +31,7 @@ From there, just about everything you need can be done with basic Typst markup. 
 
 `statbox(stats)`: Accepts a dictionary with the following format. The `skillblock` and `traits` can contain arbitrary keys. After the traits, any of "Actions", "Reactions", "Limited Usage", "Equipment", or "Legendary Actions" will be subsequently shown if present.
 
-```
+```typst
 #statbox((
   name: "Creature name",
   description: [Size creature, alignment],
@@ -63,7 +60,7 @@ From there, just about everything you need can be done with basic Typst markup. 
 
 `spell`: Accepts a dictionary as follows; the properties are all optional:
 
-```
+```typst
 #spell((
   name: "",
   spell-type: [2nd level ...],
@@ -88,8 +85,8 @@ There are two helper functions included with the template, `topfig` and `bottomf
 
 will insert the image at the bottom of the page, spanning both columns like so, and will suppress the footer for that page.
 
-![Bottom fig](https://github.com/user-attachments/assets/8ed0d215-245c-49d9-987a-4c8faf3392c7)
-
 ## Acknowledgements
 
-Inspiration from the [DND LaTeX module](https://github.com/rpgtex/DND-5e-LaTeX-Template).
+Forked from [dragonling](https://github.com/coljac/typst-dnd5e) by Colin Jacobs
+based on [Draw Steel](https://shop.mcdmproductions.com/collections/draw-steel)
+by MCDM Productions.

@@ -1,12 +1,12 @@
 [package]
-name = "dragonling"
-version = "0.2.0"
+name = "scabbard"
+version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Colin Jacobs"]
+authors = ["Philip Linden", "Colin Jacobs"]
 license = "MIT"
-description = "A comprehensive Typst template for creating Dungeons & Dragons 5E content including stat blocks, spell cards, and adventure modules."
-repository = "https://github.com/coljac/typst-dnd5e"
-keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming"]
+description = "A Typst template for creating Draw Steel RPG content including stat blocks, spell cards, and adventure modules. Forced from dragonling by Colin Jacobs."
+repository = "https://github.com/philiplinden/typst-draw-steel"
+keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming", "draw-steel", "ttrpg"]
 categories = ["layout", "report"]
 compiler = "0.13.0"
 exclude = ["example"]
