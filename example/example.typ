@@ -1,144 +1,132 @@
-#import "@preview/dragonling:0.2.0": *
+// #import "@preview/scabbard:0.1.0": *
+#import "../lib.typ": *
+#import "cover.typ": cover-page
 
-#show: dndmodule.with(
-  title: "A Date with Destiny",
-  subtitle: "A one-shot adventure for 4 players of levels 1-4 - with dinosaurs",
-  author: "Colin Jacobs",
-  cover: image("img/party.png", height: 100%),
-  paper: "a4",
-  logo: image("img/GenericLogo.png", width: 13%),
-  fancy-author: true
+#show: theme.with(paper: "us-letter")
+#set document(author: "Philip Linden", title: "Scabbard") // set doc metadata
+
+#cover-page(
+  title: "Scabbard",
+  subtitle: "A template for creating Draw Steel content",
+  author: "Philip Linden",
 )
 
-#outline(title: "Table of Contents\n")
-#colbreak()
-#heading(outlined: false, level: 1)[Credits]
+#chapter(title: "Table of Content", [
+  #set text(size: 10pt)
+  #outline(title: none, depth: 3)
+])
 
-*Designer* Personface McHumanhead
+#chapter(title: "An Example", [
+  == Hello from the Example
 
-*Template* Colin Jacobs
+  You can embed characteristic symbols like #agility, #reason, #intuition, or #presence directly in the text. Comparators like #leq(10) or #geq(10) are also available, as are ranges like #range(1, 10).
 
-*Illustrations* Some artists
-
-#lorem(25)
-#pagebreak()
-
-#place(
-  top + center,
-  float: true,
-  scope: "parent",
-  clearance: 2em,
-)[
-= A headline that grabs your attention
-]
-
-
-
-== Adventure awaits!
-
-#dnd#super("TM") is a role playing game.
-#lorem(180) OK!
-
-== A location
-
-#lorem(233)
-
-== A hook
-
-#lorem(233)
-
-=== This person
-
-#lorem(45)
-
-=== That person
-
-#lorem(85)
-
-#dndtab("Random occurences", [*d10*], [*Result*], [1], [A tingling in the extremities], [2-8], [Nothing interesting occurs], [10], [All the PCs burst into flame])
-
-#lorem(150)
-
-*And now we want a page with a big image at the top.*
-
-#topfig(image("img/dragongold.png", width: 140%))
-
-And here it is.
-#lorem(100)
-
-= More things!
-
-#lorem(204)
-
-#lorem(115)
-
-
-
-And more here!
-#breakoutbox("Look here!")[#lorem(44)]
-
-#lorem(390)
-
-// #lorem(402)
-#breakoutbox("Something to note")[#lorem(133)]
-#lorem(300)
-
-#bottomfig(image("img/swordtorn.png", width: 140%))
-
-#lorem(400)
-#statbox((
-  name: "Monster",
-  description: [Large monstrosity, neutral evil],
-  ac: [20 (natural armor)],
-  hp: [29 (1d10 + 33)],
-  speed: [10ft, climb 10ft.],
-  stats: (STR: 13, DEX: 14, CON: 18, INT: 5, WIS: 4, CHA: 7),
-  skillblock: (
-      Skills: [Perception +6, Stealth +5],
-      Senses: [darkvision 60ft, passive Perception 13],
-      Languages: [-],
-      Challenge: [5 (1800 XP)]
-  ),
-  traits: (
-    ("Scary Appearance", [While the monster is being ferocious, enemies are at -2 to all WIS saving throws.]), 
-    ("Reaching Tentacles", [The monster has six slimy tentacles. Each tentacle
-    can be attacked (AC 20; 10 hit points; immune to psychic damage). Destroying a tentacle makes the monster angry.])
-),
-  Actions: (
-    ("Multiattack", [While the monster remains alive, it is a thorn in the party's side.]), 
-    ("Saliva", [If a character is eaten by the monster, it takes 1d10 saliva damage per round.]), 
-    ("Tentacle squeeze", [If the monster has captured an enemy, it can squeeze them for 1d12 crushing damage.])
+  #lorem(100)
+  
+  === How are you?
+  #roll-table(
+    title: "Emotions",
+    byline: "My emotions are unregulated, let's roll the dice.",
+    columns: (1fr, 4fr),
+    align: (center, left),
+    breakable: false,
+      [#leq(2)], [Happy],
+      [#range(3, 5)], [Tired],
+      [6], [Confused],
+      [7], [Bored],
+      [#geq(8)], [Happy],
   )
-))
 
-== A monster
+  It's totally cool to abuse the macros!
 
-#lorem(200)
-
-= Spells
-
-#spell((
-  name: "Dancing Legs",
-  spell-type: [2nd level evocation],
-  properties: (
-    ("Casting time", [Special]), 
-    ("Range", [Self]), 
-    ("Duration", [Until long rest]), 
-    ("Components", [V, S]), 
-  ),
-  description: [Your legs start dancing, and you dance compulsively, and in an experimental fashion. #lorem(20)]
-  )
+  #roll-table(
+  title: "Fury",
+  byline: "Primal warrior channeling chaotic rage",
+  columns: (auto, 1fr),
+  [*Best for*],
+  [Berserkers, beast clan warriors, primal fighters, corruption-touched barbarians],
+  [*Resource*],
+  [Rage (building ferocity and primordial chaos)],
+  [*Focus*],
+  [High mobility, devastating attacks, battlefield destruction, primal transformation],
 )
 
-#spell((
-  name: "Clapping Hands",
-  spell-type: [2nd level evocation],
-  properties: (
-    ("Casting time", [Special]), 
-    ("Range", [Self]), 
-    ("Duration", [Until long rest]), 
-    ("Components", [V, S]), 
-  ),
-  description: [Your legs start dancing, and you dance compulsively, and in an experimental fashion. #lorem(20)]
+  == Modular Macros
+  
+  #ability(
+    name: "This is really something",
+    description: "I didn't expect to see anything!",
+    tags: ("Strike"),
+    action: "Main action",
+    target: "Everyone in the universe",
+    distance: "Melee 1",
+    test: "Power Roll + Agility, Reason, Intuition, or Presence",
+    tiers: (
+      (1, [
+        5 + #agility, #reason, #intuition, or #presence fire damage
+      ]),
+      (geq(1000), [
+        arbitrary text
+      ]),
+    ),
+    props: (
+      (
+        "Effect",
+        lorem(25),
+      ),
+      (
+        "Another one",
+        lorem(25),
+      ),
+    ),
   )
+
+  #kit(
+  name: "Arcane Archer",
+  description: [The Arcane Archer kit allows you to combine magic and ranged
+    weapon strikes. Your lack of armor keeps you mobile, and your magic
+    makes your arrows explode to devastate your foes.],
+  equpment: [You wear no armor and wield a bow.],
+  bonuses: (
+    ("Speed", "+1"),
+    ("Ranged Damage", "+2/+2/+2"),
+    ("Ranged Distance", "+10"),
+    ("Disengage", "+1"),
+  ),
+  signature-ability: ability(
+    name: "Exploding Arrow",
+    description: "Your ammunition explodes with magical energy.",
+    tags: ("Magic", "Ranged", "Strike", "Weapon"),
+    action: "Main action",
+    target: "One creature",
+    distance: "Ranged 15",
+    test: "Power Roll + Agility, Reason, Intuition, or Presence",
+    tiers: (
+      (leq(11), [
+        5 + #agility, #reason, #intuition, or #presence fire damage
+      ]),
+      (range(12, 16), [
+        7 + #agility, #reason, #intuition, or #presence fire damage
+      ]),
+      (geq(17), [
+        10 + #agility, #reason, #intuition, or #presence fire damage
+      ]),
+    ),
+    props: (
+      (
+        "Effect",
+        "One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability’s power roll.",
+      ),
+    ),
+  ),
 )
+])
+
+#chapter(title: "Don't forget the license!", break_at_end: false, [
+  #boxed-text("License", [
+    #draw-steel-license("example")
+  ])
+  #breakoutbox("License", [
+    #draw-steel-license("example")
+  ])
+])
