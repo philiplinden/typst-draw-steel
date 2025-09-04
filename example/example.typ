@@ -86,7 +86,7 @@
   description: [The Arcane Archer kit allows you to combine magic and ranged
     weapon strikes. Your lack of armor keeps you mobile, and your magic
     makes your arrows explode to devastate your foes.],
-  equpment: [You wear no armor and wield a bow.],
+  equipment: [You wear no armor and wield a bow.],
   bonuses: (
     ("Speed", "+1"),
     ("Ranged Damage", "+2/+2/+2"),

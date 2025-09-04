@@ -257,14 +257,14 @@
 #let kit(
   name: "",
   description: "",
-  equpment: "",
+  equipment: "",
   bonuses: (),
   signature-ability: (),
 ) = [
   === #name
   #description
   ==== Equipment
-  #equpment
+  #equipment
   ==== Kit Bonuses
   #for (kind, bonus) in bonuses [
     *#kind:* #bonus\
